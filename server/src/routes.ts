@@ -50,7 +50,7 @@ routes.patch('/users/:id', async (request, response) => {
 routes.delete('/users/:id', async (request, response) => {
     const { id } = request.params;
 
-    await knex('users').delete(id);
+    await knex('users').where('id', id).delete();
 
     return response.json({ success: true });
 });
